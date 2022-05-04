@@ -18,6 +18,11 @@
 </form>
 
 <table class="table">
+    <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Cuisine Type</th>
+        </tr>
     @foreach(var restaurant in Model.Restaurants)
     {
         <tr>
@@ -30,8 +35,16 @@
                     <i class="glpyhicon glyphicon-zoom-in">Details</i>
                 </a>
             </td>
+            <td>
+                <a class="btn btn-info"
+                    asp-page="./Edit" asp-route-restaurantId="@restaurant.Id">
+                    <i class="glpyhicon glyphicon-edit">Edit</i>
+                </a>
+            </td>
         </tr>
     }
 </table>
+
+<a asp-page="./Edit" class="btn btn-info">Add New</a>
 
 <div>@Model.Message</div>
